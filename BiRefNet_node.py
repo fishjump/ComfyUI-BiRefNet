@@ -116,8 +116,8 @@ class BiRefNet_node:
             size=image.shape[:2],
             mode='bilinear',
             align_corners=True
-        )
-        return res
+        ).squeeze(1).cpu()
+        return (res,)
 
 
 NODE_CLASS_MAPPINGS = {
